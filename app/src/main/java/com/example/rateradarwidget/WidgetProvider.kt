@@ -25,7 +25,7 @@ class WidgetProvider : AppWidgetProvider() {
         CoroutineScope(Dispatchers.IO).launch {
             val data = fetchCurrencyData()
             if (data != null) {
-                views.setTextViewText(R.id.dollar_value, "USD: ${data["dollar"]}")
+                views.setTextViewText(R.id.dollar_value, "USD: ${data["dolar"]}")
                 views.setTextViewText(R.id.euro_value, "EUR: ${data["euro"]}")
             }
 
@@ -46,7 +46,7 @@ class WidgetProvider : AppWidgetProvider() {
             if (response.isSuccessful) {
                 val json = JSONObject(response.body?.string() ?: "")
                 mapOf(
-                    "dollar" to json.getString("dollar"),
+                    "dolar" to json.getString("dolar"),
                     "euro" to json.getString("euro")
                 )
             } else {
